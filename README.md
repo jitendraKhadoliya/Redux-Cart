@@ -1,5 +1,11 @@
 # Getting Started with Create React App
 
+inside this project i am going to learn deep redux wokflow
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
