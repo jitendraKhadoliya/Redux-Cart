@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { add } from "../store/cartSlice";
+import { fetchProducts } from "../store/productSlice";
 
-const URL = "https://fakestoreapi.com/products";
+
+
+// const URL = "https://fakestoreapi.com/products";
 
 const Products = () => {
 
@@ -11,13 +14,18 @@ const Products = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchedData = async () => {
-      const res = await fetch(URL);
-      const data = await res.json();
-      console.log(data);
-      setProducts(data);
-    };
-    fetchedData();
+    
+    dispatch(fetchProducts())
+  
+  
+    // here i commenting this because i will get the data frm store
+    // const fetchedData = async () => {
+    //   const res = await fetch(URL);
+    //   const data = await res.json();
+    //   console.log(data);
+    //   setProducts(data);
+    // };
+    // fetchedData();
   }, []);
 
   const handleAdd = (element)=>{
