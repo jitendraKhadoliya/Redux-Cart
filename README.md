@@ -2,6 +2,72 @@
 
 inside this project i am going to learn deep redux wokflow
 
+I created component, pages, store, dir
+
+used react router dom for making one web page
+
+main work flow => 
+
+
+    /////    created cartSlice    /////
+
+  gave name
+  gave initialState empty array
+  created reducers for add and remove data
+    for add i am pushing data to the initialState 
+    for removeing I am returning an new array and using filter method to remove item by usind their ID
+
+    
+    //// created store  /////
+        configured it
+
+   /// showing data at nevbar///
+   using useSelector hook i showed the data
+
+    
+    //// first I am fetching the data inside the home component ///
+
+    
+    /// created productSlice for fetch data inside the store ///
+   
+    here I creating status object that i frezzed it or can say made read only purpose though i can use it in another component and show on screen status
+
+    i created it gave name , initialState{data , status} ,created reducers
+    here first i created it meanually 
+    second for error handling i used redux toolkit 
+
+    mainually => 
+        i was setting products inside the data that i located at initalState
+        and with that i created setStatus method through we can change status accordingly
+
+        exported it
+
+     created THUNK function  =>
+        THUNK => in simple language thunk is basically the piece of code that does some delayed work
+        thunks are already configured inside the redux toolkit
+
+    though thunk i was fetching the data and seting the data inside the reducer using dispatch 
+    and changing the status using dispatch and providing it to setStatus
+
+
+    usinf redux toolkit =>
+    it same as creating thunk and here i importing createAsyncThunk from redux toolkit and in parameter i giving and name  and creating another ayanc function  
+    and fething the data 
+
+    now for error handling created extraReducers
+    that is basically the arrow function and same as promise i processed further
+    .addcase(where thunk fuction name.pending , there is same state and action )
+    .addcase for fullfilled
+    .addcase for rejected
+
+
+gave provider in index.js and gave store location inside it
+
+now i can use and learned it lot form there 
+
+
+
+
 
 
 
