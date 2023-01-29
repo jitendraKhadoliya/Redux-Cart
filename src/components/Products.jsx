@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, {  useEffect } from "react";
+import { useDispatch,useSelector } from "react-redux";
 import { add } from "../store/cartSlice";
 import { fetchProducts } from "../store/productSlice";
+import { STATUS } from "../store/productSlice";
 
 
 
@@ -10,8 +11,12 @@ import { fetchProducts } from "../store/productSlice";
 const Products = () => {
 
   // here i am going ti fetch the data using fetch method for that i AM GOING TO  use effect and use state for normally
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
+
+  // through useSelector I will get the data from my redux store 
+
+  const {data : products ,status} = useSelector(state=>state.product)
 
   useEffect(() => {
     
@@ -26,11 +31,24 @@ const Products = () => {
     //   setProducts(data);
     // };
     // fetchedData();
-  }, []);
+  }, [dispatch]);
 
   const handleAdd = (element)=>{
     dispatch(add(element));
   }
+
+
+  // here we will check status and make changes according to it
+  // for showing loading on screen
+  if(status===STATUS.LOADING){
+    return <h1>Loading.....</h1>
+  }
+
+  // if we get error then we will show it here
+  if(status===STATUS.ERROR){
+    return <h1>Something Went Wrong....</h1>
+  }
+
 
   return (
     <>
